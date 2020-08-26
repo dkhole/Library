@@ -1,0 +1,90 @@
+body{
+    height: 100%;    
+}
+
+#main {
+    height: 100vh;
+    background-color: tan;
+    padding-top: 50px;
+    text-align: center;
+}
+
+#card-view {
+    position: relative;
+    height: 400px;
+    width: 350px;
+    border: 2px solid;
+    margin: 0 auto 50px auto;
+}
+
+#card-view > div {
+    margin: 50px;
+}
+
+#checkbox-wrapper {
+    position: absolute;
+    bottom: 40px;
+    left: 35px;
+}
+
+#remove {
+    position: absolute;
+    bottom: 30px;
+    right: 140px;
+}
+
+#library-wrapper {
+    margin: 80px auto 50px auto; 
+    height: 200px;
+    overflow: auto;
+    white-space: nowrap;
+    scrollbar-width: thin;
+}
+
+.book {
+    display: inline-block;
+    position: relative;
+    height: 180px;
+    width: 70px;
+    border: 2px solid;
+    font-size: 15px;
+    margin: 5px;
+}
+
+.book-title {
+    position: relative;
+    top: 35px;
+    transform: rotate(90deg);
+}
+
+.book-author {
+    position: relative;
+    top: 80px;
+}
+
+form {
+    background-color: rgb(146, 151, 219);
+    width: 300px;
+    height: 300px;
+    margin: auto;
+    padding: 40px 40px;
+}
+
+label[for=title], label[for=author], label[for=pages]{
+    position: relative;
+    top: -5px;
+}
+
+.input-wrapper {
+    margin-bottom: 30px;
+}
+
+input[type="text"], input[type="number"] {
+    width: 100%;
+}
+
+input[type="submit"] {
+    width: 100%;
+    height: 50px;
+    margin-top: 30px;
+}
