@@ -1,54 +1,94 @@
+:root {
+    --main-bg-color: rgb(231,223,213);
+    --card-bg-color: rgb(132,169,172);
+    --lib-bg-color: rgb(59,105,120);
+    --font-color: rgb(32,64,81);
+    background-color: rgb(132,169,172);
+}
+
 body{
     height: 100%;    
+    color: var(--font-color);
 }
 
 #main {
     height: 100vh;
-    background-color: tan;
+    background-color: var(--main-bg-color);
     padding-top: 50px;
     text-align: center;
 }
 
 #card-view {
+    background-color: var(--card-bg-color);
+    box-shadow: 15px 28px 25px -15px rgba(0,0,0,0.4);
     position: relative;
-    height: 400px;
-    width: 350px;
-    border: 2px solid;
+    height: 350px;
+    width: 300px;
+    border-radius: 15px;
     margin: 0 auto 50px auto;
+    padding: 20px;
 }
 
-#card-view > div {
-    margin: 50px;
+#card-title {
+    margin: 10px auto 20px;
+    color: yellow;
+    font-size: 3rem;
+    font-family: 'Tangerine', cursive;
+}
+
+#card-author {
+    margin: 70px auto 50px auto;
+    font-style: italic;
+}
+
+#card-pages {
+
+    font-size: 0.75rem;
 }
 
 #checkbox-wrapper {
     position: absolute;
-    bottom: 40px;
-    left: 35px;
+    bottom: 80px;
+    left: 70px;
 }
 
 #remove {
     position: absolute;
     bottom: 30px;
     right: 140px;
+    background-color: red;
+    color: white;
+    border: none;
+    cursor: pointer;
 }
 
 #library-wrapper {
     margin: 80px auto 50px auto; 
-    height: 200px;
+    height: 230px;
+    padding-top: 10px;
     overflow: auto;
     white-space: nowrap;
     scrollbar-width: thin;
 }
 
 .book {
+    background-color: var(--lib-bg-color);
+    color: rgb(231,223,213);
+    box-shadow: 0 20px 20px 0 rgba(0,0,0,0.4);
     display: inline-block;
     position: relative;
     height: 180px;
+    border-radius: 5px;
     width: 70px;
-    border: 2px solid;
     font-size: 15px;
     margin: 5px;
+    transition: top 0.25s;
+    top: 0;
+}
+
+.book:hover {
+    top: -10px;
+    color: yellow;
 }
 
 .book-title {
@@ -62,8 +102,14 @@ body{
     top: 80px;
 }
 
+a {
+    position: relative;
+    bottom: 20px;
+}
+
 form {
-    background-color: rgb(146, 151, 219);
+    background-color: rgb(59,105,120);
+    color: rgb(231,223,213);
     width: 300px;
     height: 300px;
     margin: auto;
@@ -87,4 +133,5 @@ input[type="submit"] {
     width: 100%;
     height: 50px;
     margin-top: 30px;
+    cursor: pointer;
 }

@@ -16,10 +16,11 @@ function addBook(title, author, pages, read) {
     return book;
 }
 
-//render books on page
+//render books details on card
 function renderCardView(book) {
 
     if(book == null) {
+        //clear all text if book is null
         const cardViewText = document.querySelectorAll(".card-view-text");
 
         for(let i = 0; i < cardViewText.length; i++){
@@ -44,6 +45,32 @@ function renderCardView(book) {
     }
 }
 
+//render library
+function renderLibrary() {
+    //first remove previous render
+    while(libWrapper.firstChild) {
+        libWrapper.removeChild(libWrapper.lastChild);
+    }
+
+    myLibrary.forEach((book) => {
+        const newBook = document.createElement("div");
+        newBook.className = "book";
+        const newBookTitle = document.createElement("div");
+        newBookTitle.className = "book-title";
+        
+        newBookTitle.textContent = book.title;
+        newBook.appendChild(newBookTitle);
+        libWrapper.appendChild(newBook);
+
+        //add mouseover event to call render card on each book in lib
+        newBook.addEventListener("mouseover", () => {
+            renderCardView(book);
+        })
+
+    })
+}
+
+//update data if user changes read checkbox
 cardRead = document.getElementById("card-read");
 
 cardRead.addEventListener("change", () => {
@@ -55,8 +82,11 @@ cardRead.addEventListener("change", () => {
     } else {
         libBook.read = false;
     }
+
+    localStorage.setItem("library", JSON.stringify(myLibrary));
 })
 
+//add functionality to remove button, update data and render
 const remove = document.getElementById("remove");
 
 remove.addEventListener("click", () => {
@@ -67,36 +97,13 @@ remove.addEventListener("click", () => {
         myLibrary.splice(index, 1);
     }
 
+    localStorage.setItem("library", JSON.stringify(myLibrary));
+
     renderCardView();
     renderLibrary();
 })
 
-function renderLibrary() {
-
-    while(libWrapper.firstChild) {
-        libWrapper.removeChild(libWrapper.lastChild);
-    }
-
-    myLibrary.forEach((book) => {
-        //create div class book
-        //div class book-title with text content book title
-        //append to library wrapper
-        const newBook = document.createElement("div");
-        newBook.className = "book";
-        const newBookTitle = document.createElement("div");
-        newBookTitle.className = "book-title";
-        
-        newBookTitle.textContent = book.title;
-        newBook.appendChild(newBookTitle);
-        libWrapper.appendChild(newBook);
-
-        newBook.addEventListener("mouseover", () => {
-            renderCardView(book);
-        })
-
-    })
-}
-
+//add functionality to new book button, update data and render
 const formNew = document.getElementById("form-new");
 
 formNew.addEventListener("submit", () => {
@@ -111,14 +118,16 @@ formNew.addEventListener("submit", () => {
     }
     
     const newBook = addBook(title, author, pages, read);
+
+    localStorage.setItem("library", JSON.stringify(myLibrary));
+
     renderLibrary();
 }) 
 
-
-
+//on startup if local storage is empty, initialise with book otherwise look local storage into global library
 if(localStorage.getItem('library')) {
     myLibrary = JSON.parse(localStorage.getItem('library'));
-    
+
     renderLibrary();
 } else {
     const initBook = addBook("The lord of the rings", "J.R. Tolkien", "1523", true);
@@ -127,8 +136,4 @@ if(localStorage.getItem('library')) {
 
     renderLibrary();
 }
-
-const stringLib = JSON.stringify(myLibrary);
-alert(stringLib);
-alert(JSON.parse(stringLib)[0].title);
 
