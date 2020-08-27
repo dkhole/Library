@@ -22,8 +22,8 @@ body{
     background-color: var(--card-bg-color);
     box-shadow: 15px 28px 25px -15px rgba(0,0,0,0.4);
     position: relative;
-    height: 350px;
-    width: 300px;
+    height: 300px;
+    width: 250px;
     border-radius: 15px;
     margin: 0 auto 50px auto;
     padding: 20px;
@@ -37,7 +37,7 @@ body{
 }
 
 #card-author {
-    margin: 70px auto 50px auto;
+    margin: 50px auto 50px auto;
     font-style: italic;
 }
 
@@ -48,14 +48,14 @@ body{
 
 #checkbox-wrapper {
     position: absolute;
-    bottom: 80px;
-    left: 70px;
+    bottom: 70px;
+    left: 50px;
 }
 
 #remove {
     position: absolute;
-    bottom: 30px;
-    right: 140px;
+    bottom: 20px;
+    right: 110px;
     background-color: red;
     color: white;
     border: none;
@@ -83,7 +83,7 @@ body{
     font-size: 15px;
     margin: 5px;
     transition: all 0.25s;
-    top: -10px;
+    top: 10px;
 }
 
 .book:hover {
