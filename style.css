@@ -82,12 +82,13 @@ body{
     width: 70px;
     font-size: 15px;
     margin: 5px;
-    transition: top 0.25s;
+    transition: all 0.25s;
     top: 0;
 }
 
 .book:hover {
     top: -10px;
+    box-shadow: 0 30px 30px 0 rgba(0,0,0,0.4);
     color: yellow;
 }
 
@@ -104,7 +105,7 @@ body{
 
 a {
     position: relative;
-    bottom: 20px;
+    bottom: 35px;
 }
 
 form {
